@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+   <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="https://avatars.githubusercontent.com/u/180306?s=280&v=4">
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/180306?s=280&v=4">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta content='width=device-width, initial-scale=1.0, minimum-scale=1' name='viewport' />
+    <title>AUCA - Catalog of Surveys</title>
+    <meta name="description" content="Quickly find surveys that were conducted in Central Asia. A free, open source project.">
+
+<!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://qa1231c5w9-dsn.algolia.net" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+
+ <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700">
+
+<!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.1.1/themes/reset-min.css" integrity="sha256-JQ2nnTmybhOWSjfV3sa8mG0ZVhTCcORER4cyXc5HL10=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/unified-search.css">
+
+<!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
+
+
+<!-- From grantsmakers -->
+
+
+
+<!--
+    <link rel="stylesheet" href="./Grantmakers.io - A Community Project_files/icon">
+    <link rel="stylesheet" href="./Grantmakers.io - A Community Project_files/css">
+
+    <link rel="stylesheet" href="./Grantmakers.io - A Community Project_files/reset-min.css" integrity="sha256-JQ2nnTmybhOWSjfV3sa8mG0ZVhTCcORER4cyXc5HL10=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Grantmakers.io - A Community Project_files/unified-search.css"> -->
+<!--
+    <script type="text/javascript" async="" src="./Grantmakers.io - A Community Project_files/wmmk7c67hfg2.js.Без названия"></script><script async="" src="./Grantmakers.io - A Community Project_files/analytics.js.Без названия"></script><script src="./Grantmakers.io - A Community Project_files/materialize.min.js.Без названия"></script>
+    <script src="./Grantmakers.io - A Community Project_files/algoliasearchLite.min.js.Без названия" integrity="sha256-3Laj91VXexjTlFLgL8+vvIq27laXdRmFIcO2miulgEs=" crossorigin="anonymous"></script>
+    <script src="./Grantmakers.io - A Community Project_files/instantsearch.production.min.js.Без названия" integrity="sha256-N/ZioXfJ7+qk2cejhAJsm0+ed/l/445mZGjpEWeyeR4=" crossorigin="anonymous"></script>
+    <script src="./Grantmakers.io - A Community Project_files/search-grants.js.Без названия"></script> -->
+
+</head>
+
+<body class="unified-search">
+    <header>
+        <div>
+            <nav class="navbar-unified-search transparent" id="primary-navbar">
+                <div class="nav-wrapper">
+                    <div class="container-custom">
+                        <a href="https://iliassuvanov.github.io/InequalityDataCenter/" data-target="mobile-nav" class="sidenav-trigger right disable-primary-color"><i class="material-icons">menu</i></a>
+                        <div class="row">
+                            <div class="col s8 m4 l4">
+                                <a href="https://iliassuvanov.github.io/InequalityDataCenter/" data-ga="Homepage" class="brand-logo">
+                                    <div class="logo-container">
+                                        <div class="logo">
+                                        <img src="https://avatars.githubusercontent.com/u/180306?s=280&v=4" alt="AUCA Logo">
+                                        </div>
+                                        <div class="brand brand-name">AUCA</div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col m4 l8"> </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+  <main>
+
+    <!-- Image parallax -->
+    <div class="parallax-container overlay">
+        <div class="parallax">
+        <img src="./assets/img/bg.jpg" style="transform: translate3d(-50%, 284.799px, 0px); opacity: 1;">
+        </div>
+        <div class="intro valign-wrapper">
+            <div class="intro-text center-align white-text">
+                <h1 class="text-bold">Survey Search</h1>
+                <h5>Discover what surveys have been done</h5>
+                <p>Search through hundreds of surveys</p>
+                <p>Project Founded by Damir Esenaliev</p>
+            </div>
+        </div>
+    <canvas></canvas>
+  </div>
+
+
+  <!-- SearchBox -->
+    <div class="nav-search">
+    <nav class="nav-center grey lighten-3 z-depth-1">
+        <div class="nav-wrapper">
+        <div class="row">
+            <div class="col l2 hide-on-med-and-down">
+            <div id="search-toggle" class="input-field valign-wrapper">
+                <select class="browser-default grants-search white-text">
+                <optgroup class="disabled" label="Research a foundation">
+                    <option value="profiles">Tajikistan</option>
+                </optgroup>
+                <optgroup class="disabled" label="Search all grants">
+                    <option value="grants" selected>Kyrgyzstan</option>
+                </optgroup>
+                </select>
+            </div>
+            </div>
+            <div class="col s12 l6 offset-l1 search-box-wrapper">
+            <div id="ais-widget-search-box"></div>
+            </div>
+            <div class="col l3 hide-on-med-and-down">
+            <div id="powered-by" class="right"></div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    </div>
+
+    <div class="section section-raised z-depth-4 grey lighten-3">
+        <!-- {% include search/algolia-template-rate-limit.html %}
+        {% include search/algolia-template-forbidden.html %} -->
+        <div id="algolia-hits-wrapper" class="row js-hide-advanced-tools">
+          <div class="col s12 l4">
+            <!-- Filters / Refinements header -->
+            <div class="text-muted hide-on-med-and-down">
+              Filters
+              <div class="switch switch-refinements right">
+                <label class="search-toggle-advanced">
+                  Show advanced tools
+                  <input type="checkbox">
+                  <span class="lever"></span>
+                </label>
+              </div>
+            </div>
+            <div class="hidden">
+              <ul class="actions">
+                <li>
+                  <span id="ais-widget-mobile-clear-all"></span>
+                  <a href="#" data-target="refinements-slide-out" class="sidenav-trigger waves-effect waves-light button-collapse btn white grey-text text-darken-3"><i class="material-icons right">filter_list</i> Filter</a>
+                </li>
+                <li>
+
+                </li>
+              </ul>
+            </div>
+            <div class="divider hide-on-med-and-down"></div>
+            <div class="section-refinements section-refinements-grants-search hide-on-med-and-down grants-search">
+              <div> <!-- Add row class to remove added white space / padding -->
+                <div class="col s12">
+                  <div id="ais-widget-range-input"></div>
+                  <div id="ais-widget-refinement-list--Year_of_collection"></div>
+                  <div id="ais-widget-refinement-list--Main_unit_of_observation"></div>
+                  <div id="ais-widget-refinement-list--Survey_coverage"></div>
+                  <!-- <div id="ais-widget-refinement-list--grantee_state"></div> -->
+                </div>
+                <div class="col s12">
+                  <div class="section">
+                    <div id="ais-widget-clear-all" class="center-align"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 l8">
+            <div class="row row-tight">
+              <div class="col s12 m9 l10">
+                  <div id="ais-widget-stats"></div>
+                </div>
+                <div class="col m3 l2 hide-on-med-and-down">
+                  <div id="ais-widget-sort-by" class="small text-muted-max right">
+                    <a href="#modal-tips" class="modal-trigger text-muted-max">Search types <i class="tiny material-icons material-icons-rounded grey lighten-2 icon-idea left">wb_incandescent</i></a>
+                  </div>
+                </div>
+            </div>
+            <div class="">
+              <div class="">
+                  <div class="divider"></div>
+              </div>
+            </div>
+            <div class="row"> <!-- Add row class to remove added white space / padding -->
+              <div class="col s12">
+                <div id="ais-widget-current-refined-values"></div>
+                <!-- Profiles ais-widget-hits goes here-->
+                <div class="card card-grants-search"> <!-- Use class card for grants results-->
+                  <div class="card-content"> <!-- Use class card-content for grants results-->
+                    <div class="row row-tight hide-on-small-only">
+                      <div class="col m6">
+                        Survey name
+                      </div>
+                      <div class="col m5">
+                        Main data producer
+                      </div>
+                      <div class="col m1">
+                        Actions
+                      </div>
+                      <div class="col m12 divider"></div>
+                    </div>
+                    <div id="ais-widget-hits"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 l9 offset-l3">
+            <div class="section center-align">
+              <div id="ais-widget-pagination" class="grants-search"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script  src="./script.js"></script>
+
+</body>
