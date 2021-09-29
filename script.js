@@ -38,13 +38,13 @@ const templateHits = `
         <span class="text-bold">{{#helpers.highlight}}{ "attribute": "Survey_name" }{{/helpers.highlight}}</span> <!--<span class="text-muted small">({{ Year_of_collection }})</span>-->
         </div>
         <div class="col s12 m5">
-        <a class="truncate text-light" href="{{Data_web-link}}" title="Data web-link">{{ Main_data_producer }}</a>
+        <a class="truncate text-light" href="{{Data_weblink}}" title="Data web-link">{{ Main_data_producer }}</a>
         </div>
         <div class="col m1 hide-on-small-only">
         <div class="actions-wrapper center-align">
             <a href="#" class="dropdown-trigger dropdown-trigger-hits blue-grey-text" data-target="{{ _id }}"><i class="material-icons md-18">more_vert</i></a>
             <ul id="{{ _id }}" class='dropdown-content'>
-            <li><a href="{{Study_web-link}}"><i class="material-icons md-18 left">list_alt</i>Study web-link</a></li>
+            <li><a href="{{Study_weblink}}"><i class="material-icons md-18 left">list_alt</i>Study web-link</a></li>
             </ul>
         </div>
         </div>
@@ -54,13 +54,13 @@ const templateHits = `
         <div class="col s12 m6">
         <span class="small text-light">
             {{#Funders}}
-            {{#helpers.highlight}}{ "attribute": "Funders" }{{/helpers.highlight}}, {{ Company_that_collected_data }}
+            {{#helpers.highlight}}{ "attribute": "Funders" }{{/helpers.highlight}} {{ Survey_description }}
             {{/Funders}}
         </span>
         </div>
         <div class="col s12 m5">
         <span class="small text-light">
-            {{ Sample_size }}
+            Sample size: {{ Sample_size }}
         </span>
         </div>
         </div>
@@ -143,8 +143,20 @@ instantsearch.widgets.stats({
 
 
 /* Create desktop refinements */
+
+
+const yearList = instantsearch.widgets.panel({
+  templates: {
+    header: '<i class="fa fa-chevron-right"></i>Year',
+  },
+  cssClasses: {
+    header: 'panel-header',
+  },
+})(instantsearch.widgets.refinementList);
+
+
 search.addWidget(
-    instantsearch.widgets.refinementList({
+      yearList({
         container: `#ais-widget-refinement-list--Year_of_collection`,
         attribute: 'Year_of_collection',
         limit: 8,
@@ -168,10 +180,48 @@ search.addWidget(
     }),
     );
 
+
+// search.addWidget(
+//     instantsearch.widgets.refinementList({
+//         container: `#ais-widget-refinement-list--Main_unit_of_observation`,
+//         attribute: 'Main_unit_of_observation',
+//         limit: 8,
+//         showMore: true,
+//         showMoreLimit: 20,
+//         cssClasses: {
+//         checkbox: 'filled-in',
+//         labelText: 'small',
+//         count: ['right', 'small'],
+//         showMore: 'btn-flat blue-grey-text small',
+//         disabledShowMore: 'hidden',
+//         },
+//         templates: {
+//         showMoreText: `  {{#isShowingMore}}
+//         [ - ] Showing top 20 results
+//         {{/isShowingMore}}
+//         {{^isShowingMore}}
+//         [ + ] Show top 20 results
+//         {{/isShowingMore}}`,
+//         },
+//     }),
+//     );
+
+
+
+const typeStudyList = instantsearch.widgets.panel({
+  templates: {
+    header: '<i class="fa fa-chevron-right"></i> Type of Study',
+  },
+  cssClasses: {
+    header: 'panel-header',
+  },
+})(instantsearch.widgets.refinementList);
+
+
 search.addWidget(
-    instantsearch.widgets.refinementList({
-        container: `#ais-widget-refinement-list--Survey_coverage`,
-        attribute: 'Survey_coverage',
+  typeStudyList({
+        container: `#ais-widget-refinement-list--Type_of_study`,
+        attribute: 'Type_of_study',
         limit: 8,
         showMore: true,
         showMoreLimit: 20,
@@ -194,31 +244,61 @@ search.addWidget(
     );
 
 
+const countryList = instantsearch.widgets.panel({
+  templates: {
+    header: '<i class="fa fa-chevron-right"></i> Country',
+  },
+  cssClasses: {
+    header: 'panel-header',
+  },
+})(instantsearch.widgets.refinementList);
+
 
 search.addWidget(
-    instantsearch.widgets.refinementList({
-        container: `#ais-widget-refinement-list--Main_unit_of_observation`,
-        attribute: 'Main_unit_of_observation',
-        limit: 8,
-        showMore: true,
-        showMoreLimit: 20,
-        cssClasses: {
-        checkbox: 'filled-in',
-        labelText: 'small',
-        count: ['right', 'small'],
-        showMore: 'btn-flat blue-grey-text small',
-        disabledShowMore: 'hidden',
-        },
-        templates: {
-        showMoreText: `  {{#isShowingMore}}
-        [ - ] Showing top 20 results
-        {{/isShowingMore}}
-        {{^isShowingMore}}
-        [ + ] Show top 20 results
-        {{/isShowingMore}}`,
-        },
-    }),
-    );
+  countryList({
+      container: `#ais-widget-refinement-list--Country`,
+      attribute: 'Country',
+      limit: 8,
+      showMore: true,
+      showMoreLimit: 20,
+      cssClasses: {
+      checkbox: 'filled-in',
+      labelText: 'small',
+      count: ['right', 'small'],
+      showMore: 'btn-flat blue-grey-text small',
+      disabledShowMore: 'hidden',
+      },
+  }),
+);
+
+
+
+
+
+// search.addWidget(
+//   instantsearch.widgets.refinementList({
+//       attribute: 'Country',
+//       limit: 8,
+//       showMore: true,
+//       showMoreLimit: 20,
+//       cssClasses: {
+//       header: 'panel-header',
+//       checkbox: 'filled-in',
+//       labelText: 'small',
+//       count: ['right', 'small'],
+//       showMore: 'btn-flat blue-grey-text small',
+//       disabledShowMore: 'hidden',
+//       },
+//       templates: {
+//       showMoreText: `  {{#isShowingMore}}
+//       [ - ] Showing top 20 results
+//       {{/isShowingMore}}
+//       {{^isShowingMore}}
+//       [ + ] Show top 20 results
+//       {{/isShowingMore}}`,
+//       },
+//   }),
+//   );
 
 
 
