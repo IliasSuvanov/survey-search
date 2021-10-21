@@ -30,7 +30,6 @@
 
 
 
-
   <!-- Start of Async Drift Code -->
   <script>
     "use strict";
@@ -61,7 +60,7 @@
     <!-- End of Async Drift Code -->
 </head>
 
-<body class="unified-search">
+<body class="simple-page">
 
 
     <header>
@@ -113,7 +112,7 @@
                         <p class="blue-grey-text text-lighten-1"></p> <span class="title">About</span>
                       </a>
                     </li>
-                </ul>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -125,172 +124,55 @@
 
 
 
+
   <main>
 
-    <!-- Image parallax -->
-    <div class="parallax-container overlay">
-        <div class="parallax">
-        <img src="./assets/img/bg.jpg" style="transform: translate3d(-50%, 284.799px, 0px); opacity: 1;">
-        </div>
-        <div class="intro valign-wrapper">
-            <div class="intro-text center-align white-text">
-                <h1 class="text-bold">Paper Search</h1>
-                <h5>Discover what Papers have been done</h5>
-                <p>Search through hundreds of Papers</p>
-                <h6>Project Founded by Damir Esenaliev</h6>
-                <h6>Co-Founded by Nurgul Ukueva and Ilias Suvanov</h6>
-                <p>Project made possible with the generous support from Dean of Economics Department Zarylbek Kudabayev</p>
-            </div>
-        </div>
-    <canvas></canvas>
-  </div>
 
-
-  <!-- SearchBox -->
-    <div class="nav-search">
-    <nav class="nav-center grey lighten-3 z-depth-1">
-        <div class="nav-wrapper">
-        <div class="row">
-            <div class="col l2 hide-on-med-and-down">
-            <!-- <div id="search-toggle" class="input-field valign-wrapper">
-                <select class="browser-default grants-search white-text">
-                <optgroup class="disabled" label="Research a foundation">
-                    <option value="profiles">Tajikistan</option>
-                </optgroup>
-                <optgroup class="disabled" label="Search all grants">
-                    <option value="grants" selected>Kyrgyzstan</option>
-                </optgroup>
-                </select>
-            </div> -->
-            </div>
-            <div class="col s12 l6 offset-l1 search-box-wrapper">
-            <div id="ais-widget-search-box"></div>
-            </div>
-            <div class="col l3 hide-on-med-and-down">
-            <div id="powered-by" class="right"></div>
-            </div>
-        </div>
-        </div>
-    </nav>
-    </div>
-
-    <div class="section section-raised z-depth-4 grey lighten-3">
-        <!-- {% include search/algolia-template-rate-limit.html %}
-        {% include search/algolia-template-forbidden.html %} -->
-        <div id="algolia-hits-wrapper" class="row js-hide-advanced-tools">
-          <div class="col s12 l4">
-            <!-- Filters / Refinements header -->
-            <div class="text-muted hide-on-med-and-down">
-              Filters
-              <div class="switch switch-refinements right">
-                <label class="search-toggle-advanced">
-                  Show advanced tools
-                  <input type="checkbox">
-                  <span class="lever"></span>
-                </label>
-              </div>
-            </div>
-            <div class="hidden">
-              <ul class="actions">
-                <li>
-                  <span id="ais-widget-mobile-clear-all"></span>
-                  <a href="#" data-target="refinements-slide-out" class="sidenav-trigger waves-effect waves-light button-collapse btn white grey-text text-darken-3"><i class="material-icons right">filter_list</i> Filter</a>
-                </li>
-                <li>
-
-                </li>
-              </ul>
-            </div>
-            <div class="divider hide-on-med-and-down"></div>
-            <div class="section-refinements section-refinements-grants-search hide-on-med-and-down grants-search">
-              <div> <!-- Add row class to remove added white space / padding -->
-                <div class="col s12">
-                  <div id="ais-widget-range-input"></div>
-                  <div id="ais-widget-refinement-list--Extra"></div>
-                  <div id="ais-widget-refinement-list--Item_Type"></div>
-                  <!-- <div id="ais-widget-refinement-list--Main_unit_of_observation"></div> -->
-                  <div id="ais-widget-refinement-list--Publication_Year"></div>
-                  <!-- <div id="ais-widget-refinement-list--grantee_state"></div> -->
-                </div>
-                <div class="col s12">
-                  <div class="section">
-                    <div id="ais-widget-clear-all" class="center-align"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 l8">
-            <div class="row row-tight">
-              <div class="col s12 m9 l10">
-                  <div id="ais-widget-stats"></div>
-                </div>
-                <div class="col m3 l2 hide-on-med-and-down">
-                  <div id="ais-widget-sort-by" class="small text-muted-max right">
-                    <a href="#modal-tips" class="modal-trigger text-muted-max">Search types <i class="tiny material-icons material-icons-rounded grey lighten-2 icon-idea left">wb_incandescent</i></a>
-                  </div>
-                </div>
-            </div>
-            <div class="">
-              <div class="">
-                  <div class="divider"></div>
-              </div>
-            </div>
-            <div class="row"> <!-- Add row class to remove added white space / padding -->
-              <div class="col s12">
-                <div id="ais-widget-current-refined-values"></div>
-                <!-- Profiles ais-widget-hits goes here-->
-                <div class="card card-grants-search"> <!-- Use class card for grants results-->
-                  <div class="card-content"> <!-- Use class card-content for grants results-->
-                    <div class="row row-tight hide-on-small-only">
-                      <div class="col m6">
-                        Paper name
-                      </div>
-                      <div class="col m5">
-                        Link
-                      </div>
-                      <div class="col m1">
-                        Actions
-                      </div>
-                      <div class="col m12 divider"></div>
-                    </div>
-                    <div id="ais-widget-hits"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col s12 l9 offset-l3">
-            <div class="section center-align">
-              <div id="ais-widget-pagination" class="grants-search"></div>
+    <div class="header header-filter" style="background-image: url('./assets/img/library.jpg')">
+        <div class="container valign-wrapper">
+          <div class="row">
+            <div class="col s12 center-align">
+              <h1 class="title" style="color:whitesmoke;">Data Viz</h1>
+              <h6 style="color:whitesmoke;">Vizualization of metadata of micro-surveys </h6>
             </div>
           </div>
         </div>
       </div>
 
-      <div id="disqus_thread"></div>
-<script>
-    /**
-    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-    /*
-    var disqus_config = function () {
-    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-    };
-    */
-    (function() { // DON'T EDIT BELOW THIS LINE
-    var d = document, s = d.createElement('script');
-    s.src = 'https://surveysearch.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <div class="main main-raised">
 
-    </main>
 
-    <script  src="./script_publications.js"></script>
+
+        <div class="container-custom">
+          <div class="section section-simple-page section-about">
+            <div id="main-content" class="row">
+              <div class="col s12 m9 offset-m1 l10 offset-l1 xl8 offset-xl1">
+                <!-- <div class="section section-about">
+                  <p class="summary blue-grey-text text-darken-3">Project founded by Damir Esenaliev (IGZ/ISDC)</p>
+                  <p class="summary blue-grey-text text-darken-3">Co-Founded by Nurgul Ukueva (AUCA), Ilias Suvanov (AUCA).</p>
+                </div> -->
+                <div id="toc-dataset" class="section section-about scrollspy">
+                  <h4>Data Viz </h4>
+                <div class='tableauPlaceholder' id='viz1634551162235' style='position: relative'>
+                  <noscript><a href='#'>
+                    <img alt='Number of individual, household, firms survey done in Central Asia ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurveyDatabase1&#47;Story1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' />
+                      <param name='site_root' value='' />
+                      <param name='name' value='SurveyDatabase1&#47;Story1' />
+                      <param name='tabs' value='no' />
+                      <param name='toolbar' value='yes' />
+                      <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Su&#47;SurveyDatabase1&#47;Story1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' />
+                      <param name='display_count' value='yes' />
+                      <param name='language' value='en-US' />
+                      <param name='filter' value='publish=yes' />
+                    </object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1634551162235');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1016px';vizElement.style.height='991px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
+          </div>
+        </div>
+      </div>
+
+  </main>
+
+    <script  src="./script.js"></script>
 
 
 
@@ -351,7 +233,4 @@
         </div>
       </div>
     </footer>
-
-
-
 </body>

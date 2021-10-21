@@ -95,6 +95,7 @@ search.addWidget(
   }),
 );
 
+
 /* ---------- */
 /* Pagination */
 /* ---------- */

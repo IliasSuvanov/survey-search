@@ -244,6 +244,8 @@ search.addWidget(
     );
 
 
+
+
 const countryList = instantsearch.widgets.panel({
   templates: {
     header: '<i class="fa fa-chevron-right"></i> Country',
@@ -271,6 +273,37 @@ search.addWidget(
   }),
 );
 
+
+
+
+
+
+const freeList = instantsearch.widgets.panel({
+  templates: {
+    header: '<i class="fa fa-chevron-right"></i> Free access',
+  },
+  cssClasses: {
+    header: 'panel-header',
+  },
+})(instantsearch.widgets.refinementList);
+
+
+search.addWidget(
+  freeList({
+      container: `#ais-widget-refinement-list--For_free`,
+      attribute: 'For_free',
+      limit: 8,
+      showMore: true,
+      showMoreLimit: 20,
+      cssClasses: {
+      checkbox: 'filled-in',
+      labelText: 'small',
+      count: ['right', 'small'],
+      showMore: 'btn-flat blue-grey-text small',
+      disabledShowMore: 'hidden',
+      },
+  }),
+);
 
 
 
