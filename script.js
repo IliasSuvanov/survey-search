@@ -61,6 +61,8 @@ const templateHits = `
         <div class="col s12 m5">
         <span class="small text-light">
             Sample size: {{ Sample_size }}
+            <a class="truncate text-light" href="{{Study_weblink}}" title="Study web-link">Study web-link</a>
+            <p>Funders: {{Funders}}</p>
         </span>
         </div>
         </div>
