@@ -1,4 +1,4 @@
-# SurveySearch
+# Survey of micro-data sources in Central Asia
 
 ## Summary
 The aim is to create a list of micro-data sources that were conducted in Kyrgyzstan since 1991 and write a survey review paper examining the developments and role of micro-data.
